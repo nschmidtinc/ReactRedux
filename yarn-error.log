@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/Cellar/node/9.8.0/bin/node /usr/local/Cellar/yarn/1.5.1_1/libexec/bin/yarn.js add nodemon
+  /usr/local/Cellar/node/9.8.0/bin/node /usr/local/Cellar/yarn/1.5.1_1/libexec/bin/yarn.js install -g create-react-app
 
 PATH: 
   /usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/local/git/bin
@@ -14,7 +14,30 @@ Platform:
   darwin x64
 
 npm manifest: 
-  
+  {
+    "name": "server",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "engines": {
+      "node": "9.8.0",
+      "npm": "5.7.1"
+    },
+    "scripts": {
+      "start": "node Index.js",
+      "dev": "nodemon Index.js"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+      "cookie-session": "^2.0.0-beta.3",
+      "express": "^4.16.2",
+      "mongoose": "^5.0.9",
+      "nodemon": "^1.17.1",
+      "passport": "^0.4.0",
+      "passport-google-oauth20": "^1.0.0"
+    }
+  }
 
 yarn manifest: 
   No manifest
@@ -23,9 +46,9 @@ Lockfile:
   No lockfile
 
 Trace: 
-  SyntaxError: /Users/arleestewart/Projects/reduxSite/server/package.json: Unexpected end of JSON input
-      at JSON.parse (<anonymous>)
-      at /usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:1036:59
+  Error: `--global` has been deprecated. Please run "yarn global add create-react-app" instead.
+      at new MessageError (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:186:110)
+      at Object.<anonymous> (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:21987:13)
       at Generator.next (<anonymous>)
       at step (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:98:30)
       at /usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:109:13
