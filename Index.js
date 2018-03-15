@@ -1,12 +1,13 @@
 const mongoose = require("mongoose");
 const keys = require("./config/keys");
 const bodyParser = require("body-parser");
-const models = require("./models/User");
+require("./models/User");
+require("./models/Survey");
 const cookieSession = require("cookie-session");
 const passport = require("passport");
 
 const express = require("express");
-const passportConfig = require("./services/passport");
+require("./services/passport");
 const app = express();
 
 mongoose.connect(keys.mongoURI);
@@ -23,11 +24,15 @@ console.log("it's working!");
 
 require("./routes/authRoutes")(app);
 require("./routes/billingRoutes")(app);
+require("./routes/surveyRoutes")(app);
 //let express know when we are asking for CRA (only for production)
 if (process.env.NODE_ENV === "production") {
-  // express will serve up prod assets like main.js file of main.css file
+  // Express will serve up production assets
+  // like our main.js file, or main.css file!
   app.use(express.static("client/build"));
-  //epress will serve up the index,html fule if it doesn't recognize the route
+
+  // Express will serve up the index.html file
+  // if it doesn't recognize the route
   const path = require("path");
   app.get("*", (req, res) => {
     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
