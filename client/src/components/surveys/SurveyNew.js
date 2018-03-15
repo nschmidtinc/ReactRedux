@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import SurveyForm from "./SurveyForm";
+import { reduxForm } from "redux-form";
 import SurveyFormReview from "./SurveyFormReview";
 class SurveyNew extends Component {
   state = { showFormReview: false };
@@ -7,7 +8,7 @@ class SurveyNew extends Component {
     if (this.state.showFormReview) {
       return (
         <SurveyFormReview
-          onCancel={this.setState({ SurveyFormReview: false })}
+          onCancel={() => this.setState({ showFormReview: false })}
         />
       );
     }
@@ -25,4 +26,6 @@ class SurveyNew extends Component {
   }
 }
 
-export default SurveyNew;
+export default reduxForm({
+  form: "surveyForm"
+})(SurveyNew);
